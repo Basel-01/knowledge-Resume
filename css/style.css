@@ -1,0 +1,130 @@
+/* Variables */
+:root {
+  --primary-color: #425b84;
+  --secondary-color: #5b7bb4;
+  --max-width: 1100px;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: normal 16px/1.5 "Arial", sans-serif;
+  background-color: var(--primary-color);
+  color: #fff;
+  overflow-x: hidden;
+  /* padding-bottom: 50px; */
+}
+
+/* Header */
+header {
+  background-color: var(--secondary-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 10px;
+}
+header h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Time Line */
+.timeline ul {
+  list-style: none;
+  padding: 50px 0;
+}
+/* Creat Line */
+.timeline ul li {
+  position: relative;
+  width: 6px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+/* Boxes */
+.timeline ul li .box {
+  position: relative;
+  background-color: var(--secondary-color);
+  width: 400px;
+  padding: 15px;
+  transition: all 0.5s ease-in-out;
+}
+/* Right Side */
+.timeline ul li:nth-child(odd) .box {
+  left: 40px;
+}
+/* Left Side */
+.timeline ul li:nth-child(even) .box {
+  left: -440px;
+}
+/* Dots */
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  width: 24px;  
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: background-color 0.5s ease-in-out ;
+}
+/* Arrows Base */
+.timeline li .box::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  bottom: 4px;
+}
+/* Left Arrows */
+.timeline li:nth-child(odd) .box::before {
+  left: -16px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent var(--secondary-color) transparent transparent;
+}
+/* Right Arrows */
+.timeline li:nth-child(even) .box::before {
+  right: -16px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent var(--secondary-color);
+}
+
+/*  */
+@media (max-width: 767px) {
+  header h1 {
+    font-size: 25px;
+  }
+  header h3 {
+    font-size: 18px;
+  }
+  .timeline ul li .box {
+    width: calc(100vw - 90px);
+  }
+  .timeline ul li {
+    margin: 0 15px;
+  }
+  .timeline ul li:nth-child(even) .box {
+    left: 40px;
+  }
+  .timeline li:nth-child(even) .box::before {
+    right: 100%;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent var(--secondary-color) transparent transparent;
+  }
+}
+
+@media (min-width: 768px) and (max-width:900px) {
+  .timeline ul li .box {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) .box {
+    left: -290px;
+}
+}
